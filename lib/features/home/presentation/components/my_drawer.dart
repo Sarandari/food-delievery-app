@@ -31,16 +31,16 @@ class MyDrawer extends StatelessWidget {
                   },
               ),
               //list tile
-              MyDrawerTile(
-                title: 'I T E M S ',
-                icon: Icons.description,
-                onTap: (){
-                  Navigator.of(context).pop();
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => ItemsPage(),)
-                  );
-                },
-              ),
+              // MyDrawerTile(
+              //   title: 'I T E M S ',
+              //   icon: Icons.description,
+              //   onTap: (){
+              //     Navigator.of(context).pop();
+              //     Navigator.of(context).push(
+              //       MaterialPageRoute(builder: (context) => ItemsPage(),)
+              //     );
+              //   },
+              // ),
 
               //search tile
               MyDrawerTile(

@@ -7,7 +7,7 @@ class PopularFood extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 270,
+      height: 280,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
