@@ -6,7 +6,8 @@ class FoodCard extends StatelessWidget {
   final int calories;
   final String image;
   final double price;
-  const FoodCard({super.key, required this.title, required this.image, required this.calories, required this.price});
+  final List<Map<String, dynamic>> foodOption;
+  const FoodCard({super.key, required this.title, required this.image, required this.calories, required this.price, required this.foodOption});
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +19,7 @@ class FoodCard extends StatelessWidget {
               calories: calories,
               image: image,
               price: price,
+              foodOption: foodOption,
             )));
       },
       child: Container(

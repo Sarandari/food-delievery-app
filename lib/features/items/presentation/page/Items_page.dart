@@ -8,7 +8,8 @@ class ItemsPage extends StatefulWidget {
   final int calories;
   final String image;
   final double price;
-  const ItemsPage({super.key, required this.title, required this.calories, required this. image, required this.price});
+  final List<Map<String, dynamic>> foodOption;
+  const ItemsPage({super.key, required this.title, required this.calories, required this. image, required this.price, required this.foodOption});
 
   @override
   State<ItemsPage> createState() => _ItemsPageState();
@@ -17,22 +18,18 @@ class ItemsPage extends StatefulWidget {
 class _ItemsPageState extends State<ItemsPage> {
   int countDelivery = 1;
 
-  int selectedSizeIndex = 1;
+  int selectedFoodOptionIndex = 1;
   late double selectedPrice;
 
   @override
   void initState() {
     super.initState();
-    selectedSizeIndex = sizes.indexWhere((size) => size["price"] == widget.price);
-    if (selectedSizeIndex == -1) selectedSizeIndex = 0;
-    selectedPrice = sizes[selectedSizeIndex]["price"];
+    selectedFoodOptionIndex = widget.foodOption.indexWhere((size) => size["price"] == widget.price);
+    if (selectedFoodOptionIndex == -1) selectedFoodOptionIndex = 0;
+    selectedPrice = widget.foodOption[selectedFoodOptionIndex]["price"];
   }
 
-  List<Map<String, dynamic>> sizes = [
-    {"inch": 8, "price": 6.44},
-    {"inch": 12, "price": 9.47},
-    {"inch": 16, "price": 15.32},
-  ];
+
 
   double get totalPrice => selectedPrice * countDelivery;
 
@@ -149,14 +146,14 @@ class _ItemsPageState extends State<ItemsPage> {
           //inch
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: List.generate(sizes.length, (index) {
+            children: List.generate(widget.foodOption.length, (index) {
               return InchCard(
-                inch: sizes[index]["inch"],
-                price: sizes[index]["price"],
-                isSelected: selectedSizeIndex == index,
+                inch: widget.foodOption[index]["inch"],
+                price: widget.foodOption[index]["price"],
+                isSelected: selectedFoodOptionIndex == index,
                 onSelected: (price) {
                   setState(() {
-                    selectedSizeIndex = index;
+                    selectedFoodOptionIndex = index;
                     selectedPrice = price; // ✅ сонгосон үнийг шинэчилнэ
                   });
                 },
