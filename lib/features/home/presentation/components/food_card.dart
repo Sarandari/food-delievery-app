@@ -12,7 +12,13 @@ class FoodCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ItemsPage(title: title, calories: calories, image: image, price: price)));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+            ItemsPage(
+              title: title,
+              calories: calories,
+              image: image,
+              price: price,
+            )));
       },
       child: Container(
         width: 160,

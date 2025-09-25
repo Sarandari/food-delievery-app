@@ -16,13 +16,25 @@ class ItemsPage extends StatefulWidget {
 
 class _ItemsPageState extends State<ItemsPage> {
   int countDelivery = 1;
-  double get totalPrice => widget.price * countDelivery;
+
   int selectedSizeIndex = 1;
+  late double selectedPrice;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedSizeIndex = sizes.indexWhere((size) => size["price"] == widget.price);
+    if (selectedSizeIndex == -1) selectedSizeIndex = 0;
+    selectedPrice = sizes[selectedSizeIndex]["price"];
+  }
+
   List<Map<String, dynamic>> sizes = [
     {"inch": 8, "price": 6.44},
     {"inch": 12, "price": 9.47},
     {"inch": 16, "price": 15.32},
   ];
+
+  double get totalPrice => selectedPrice * countDelivery;
 
   // double calculateAge() {
   //   return 45;
@@ -142,9 +154,10 @@ class _ItemsPageState extends State<ItemsPage> {
                 inch: sizes[index]["inch"],
                 price: sizes[index]["price"],
                 isSelected: selectedSizeIndex == index,
-                onTap: () {
+                onSelected: (price) {
                   setState(() {
                     selectedSizeIndex = index;
+                    selectedPrice = price; // ✅ сонгосон үнийг шинэчилнэ
                   });
                 },
               );
