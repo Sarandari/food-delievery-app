@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../components/inchCard.dart';
+import '../components/my_detail_text.dart';
 
 
 class ItemsPage extends StatefulWidget {
@@ -28,8 +29,6 @@ class _ItemsPageState extends State<ItemsPage> {
     if (selectedFoodOptionIndex == -1) selectedFoodOptionIndex = 0;
     selectedPrice = widget.foodOption[selectedFoodOptionIndex]["price"];
   }
-
-
 
   double get totalPrice => selectedPrice * countDelivery;
 
@@ -160,8 +159,16 @@ class _ItemsPageState extends State<ItemsPage> {
               );
             }),
           ),
-
+          SizedBox(height: 30),
           //rating
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              MyDetailText(txt: '4.9', myImage: 'assets/images/star.png'),
+              MyDetailText(txt: 'Caloriees', myImage: 'assets/images/emoji-2.png'),
+              MyDetailText(txt: '20-30 min', myImage: 'assets/images/time.png'),
+            ],
+          ),
 
           //foot
         ],
