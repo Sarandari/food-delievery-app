@@ -13,40 +13,52 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final height = size.height;
+    final width = size.width;
+
     return MaterialApp(
-      // color: Colors.white,
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
+          backgroundColor: Colors.white,
           actions: [
             IconButton(onPressed: (){}, icon: Icon(Icons.search)),
           ],
         ),
         drawer: MyDrawer(),
         body: Container(
-          // color: Colors.white,
           child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 35.0),
+            padding:  EdgeInsets.symmetric(horizontal: width*0.085),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 30),
+                SizedBox(height: width * 0.08),
                 //name
                 Text('Hi Alex',
                   style: TextStyle(
                     color: Colors.redAccent,
-                    fontSize: 18,
+                    fontSize: height * 0.02,
                   ),
                 ),
 
                 //first section find food
                 FindFood(),
-                SizedBox(height: 70,),
+                SizedBox(height: height * 0.08,),
 
                 //second section
-                Text('Popular', style: TextStyle(color: Color(0xff4F4F4F), fontWeight: FontWeight.bold, fontSize: 21,),),
+                Text('Popular',
+                  style: TextStyle(
+                    color: Color(0xff4F4F4F),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 21,
+                  ),
+                ),
+                SizedBox(height: 30),
                 PopularFood(),
                 SizedBox(height: 30),
                 //food section

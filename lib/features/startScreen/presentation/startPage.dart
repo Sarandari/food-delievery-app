@@ -6,7 +6,16 @@ class StartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // дэлгэцийн хэмжээ
+    final size = MediaQuery.of(context).size;
+    final height = size.height;
+    final width = size.width;
+    print('height: $height width: $width');
+
+    //width * 0.01 = 400 * 0.01 = 4 px
+    print(width);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.redAccent,
         body: SafeArea(
@@ -14,7 +23,8 @@ class StartPage extends StatelessWidget {
             children: [
               // Дээд зураг
               Container(
-                height: 595,
+                height: height * 0.65,
+                width: double.infinity,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/images/delivery-man-2.png"),
@@ -27,8 +37,8 @@ class StartPage extends StatelessWidget {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  margin: const EdgeInsets.all(35),
-                  padding: const EdgeInsets.all(37),
+                  margin: EdgeInsets.all(width * 0.08), // дэлгэцийн өргөний 8%
+                  padding: EdgeInsets.all(width * 0.09), // дэлгэцийн өргөний 9%
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(26),
@@ -48,7 +58,7 @@ class StartPage extends StatelessWidget {
                         TextSpan(
                           text: 'Quick Delivery at your',
                           style: TextStyle(
-                            fontSize: 31,
+                            fontSize: width * 0.08,
                             color: Color(0xff4F4F4F),
                             fontWeight: FontWeight.bold,
                           ),
@@ -56,7 +66,7 @@ class StartPage extends StatelessWidget {
                             TextSpan(
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 31,
+                                fontSize: width * 0.08,
                                 color: Colors.redAccent,
                               ),
                               text: ' Doorstep',
@@ -64,7 +74,7 @@ class StartPage extends StatelessWidget {
                         ),
 
                       ),
-                      const SizedBox(height: 10),
+                      SizedBox(height: height * 0.01),
                       const Text(
                         "Home delivery and online reservation system for restaurants and cafe",
                         textAlign: TextAlign.center,
@@ -73,7 +83,7 @@ class StartPage extends StatelessWidget {
                           color: Color(0xffBDBDBD),
                         ),
                       ),
-                      const SizedBox(height: 10),
+                      SizedBox(height: height * 0.01),
                       ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).push(
@@ -87,12 +97,17 @@ class StartPage extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(40),
                           ),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 40, vertical: 14),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: width * 0.1,
+                            vertical: height * 0.02,
+                          ),
                         ),
-                        child: const Text(
+                        child: Text(
                           "Get Started",
-                          style: TextStyle(fontSize: 24, color: Colors.white),
+                          style: TextStyle(
+                              fontSize: width * 0.06,
+                              color: Colors.white
+                          ),
                         ),
                       ),
                     ],

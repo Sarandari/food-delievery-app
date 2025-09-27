@@ -34,7 +34,7 @@ class InchCard extends StatelessWidget {
                   ? Colors.redAccent.withOpacity(0.2)
                   : Colors.transparent,
             ),
-          ),
+          ),SizedBox(height: 6),
           Text(
             "\$$price",
             style: TextStyle(
@@ -43,10 +43,10 @@ class InchCard extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 6),
+          SizedBox(height: 6),
           Text(
             "$inch inch",
-            style: const TextStyle(fontSize: 12, color: Colors.black),
+            style: const TextStyle(fontSize: 14, color: Colors.black),
           ),
         ],
       ),

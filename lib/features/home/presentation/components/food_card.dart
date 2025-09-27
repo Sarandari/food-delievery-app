@@ -24,8 +24,8 @@ class FoodCard extends StatelessWidget {
       },
       child: Container(
         width: 160,
+        margin: EdgeInsets.only(right: 30),
         decoration: BoxDecoration(
-          color: Colors.white,
           borderRadius: BorderRadius.circular(15.0),
           border: Border.all(
             color: Colors.grey.shade200,

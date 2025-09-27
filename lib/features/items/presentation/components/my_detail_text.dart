@@ -7,11 +7,16 @@ class MyDetailText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
+    return Row(
+      children: [
         Image(image: AssetImage(myImage)),
         SizedBox(width: 8),
-        Text(txt)
+        Text(
+          txt,
+          style: TextStyle(
+            fontSize: 16,
+          ),
+        )
       ],
     );
   }

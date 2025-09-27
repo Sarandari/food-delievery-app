@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../components/image_Size_test.dart';
 import '../components/inchCard.dart';
 import '../components/my_detail_text.dart';
 
@@ -50,10 +51,14 @@ class _ItemsPageState extends State<ItemsPage> {
       }
     });
   }
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         leading: IconButton(
             onPressed: (){
               Navigator.of(context).pop();
@@ -67,13 +72,16 @@ class _ItemsPageState extends State<ItemsPage> {
           ),
         ],
       ),
-
       body: Column(
         children: [
           //text
           Text('Meeting Cheese',
-            style: TextStyle(color: Color(0xff4F4F4F), fontSize: 21),
+            style: TextStyle(
+                color: Color(0xff4F4F4F),
+                fontSize: 21,
+            ),
           ),
+          SizedBox(height: 8),
           //price
           Text.rich(
             TextSpan(
@@ -98,16 +106,23 @@ class _ItemsPageState extends State<ItemsPage> {
             ),
 
           ),
-
+          SizedBox(height: 8),
           //image
-          Image(image: AssetImage(widget.image)),
-
+          Image(
+            image: AssetImage(widget.image),
+            width: 270,
+            height: 270,
+            fit: BoxFit.cover,
+          ),
+          SizedBox(height: 16),
           //count
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GestureDetector(
                 onTap: decreaseCount,
                 child: Container(
+                  margin: EdgeInsets.all(8),
                   decoration: const BoxDecoration(
                       color: Colors.redAccent,
                       shape: BoxShape.rectangle,
@@ -120,10 +135,13 @@ class _ItemsPageState extends State<ItemsPage> {
                   child: const Icon(Icons.remove, color: Colors.white, size: 18),
                 ),
               ),
+              SizedBox(width: 8),
               Text(countDelivery.toString()),
+              SizedBox(width: 8),
               GestureDetector(
                 onTap: increaseCount,
                 child: Container(
+                  margin: EdgeInsets.all(8),
                   decoration: const BoxDecoration(
                       color: Colors.redAccent,
                       shape: BoxShape.rectangle,
@@ -138,39 +156,59 @@ class _ItemsPageState extends State<ItemsPage> {
               ),
             ],
           ),
-
+          SizedBox(height: 8),
           //price
           Text('\$${totalPrice.toStringAsFixed(2)}'),
-
+          SizedBox(height: 90),
           //inch
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: List.generate(widget.foodOption.length, (index) {
-              return InchCard(
-                inch: widget.foodOption[index]["inch"],
-                price: widget.foodOption[index]["price"],
-                isSelected: selectedFoodOptionIndex == index,
-                onSelected: (price) {
-                  setState(() {
-                    selectedFoodOptionIndex = index;
-                    selectedPrice = price; // ✅ сонгосон үнийг шинэчилнэ
-                  });
-                },
-              );
-            }),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 35),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: List.generate(widget.foodOption.length, (index) {
+                return InchCard(
+                  inch: widget.foodOption[index]["inch"],
+                  price: widget.foodOption[index]["price"],
+                  isSelected: selectedFoodOptionIndex == index,
+                  onSelected: (price) {
+                    setState(() {
+                      selectedFoodOptionIndex = index;
+                      selectedPrice = price;
+                    });
+                  },
+                );
+              }),
+            ),
           ),
           SizedBox(height: 30),
           //rating
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              MyDetailText(txt: '4.9', myImage: 'assets/images/star.png'),
-              MyDetailText(txt: 'Caloriees', myImage: 'assets/images/emoji-2.png'),
-              MyDetailText(txt: '20-30 min', myImage: 'assets/images/time.png'),
-            ],
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 35),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                MyDetailText(txt: '4.9', myImage: 'assets/images/star.png'),
+                MyDetailText(txt: '${widget.calories} Caloriees', myImage: 'assets/images/emoji-2.png'),
+                MyDetailText(txt: '20-30 min', myImage: 'assets/images/time.png'),
+              ],
+            ),
           ),
-
+          SizedBox(height: 30),
           //foot
+          ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.redAccent,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 90, vertical: 14),
+            ),
+            child: const Text(
+              "ADD TO CARD",
+              style: TextStyle(fontSize: 24, color: Colors.white),
+            ),
+          ),
         ],
       ),
     );

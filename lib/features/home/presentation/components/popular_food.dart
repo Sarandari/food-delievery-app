@@ -34,6 +34,17 @@ class PopularFood extends StatelessWidget {
               {"inch": 16, "price": 18.36},
             ],
           ),
+          FoodCard(
+            title: 'Pizza Capricciosa',
+            image: 'assets/images/pizza-2.png',
+            calories: 54,
+            price: 12.55,
+            foodOption: [
+              {"inch": 8, "price": 9.85},
+              {"inch": 12, "price": 12.55},
+              {"inch": 16, "price": 18.36},
+            ],
+          ),
         ],
       ),
     );

@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class MyFood extends StatelessWidget {
   final String title;
@@ -7,12 +7,13 @@ class MyFood extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         children: [
           //image
-          Image(image: AssetImage(image)),
+          Container(
+              child: Image(image: AssetImage(image))),
 
           //text
           Text(title, style: TextStyle(color: Color(0xff4F4F4F), fontSize: 10),),

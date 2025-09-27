@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:food_delievery_app/features/home/presentation/components/my_drawer_tile.dart';
 
-import '../../../items/presentation/page/Items_page.dart';
-
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Colors.white,
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
