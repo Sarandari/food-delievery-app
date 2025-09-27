@@ -89,7 +89,7 @@ class _ItemsPageState extends State<ItemsPage> {
                 TextSpan(
                   text: "\$",
                   style: const TextStyle(
-                    color: Colors.redAccent, // $ тэмдэгийн өнгө
+                    color: Colors.redAccent,
                     fontWeight: FontWeight.bold,
                     fontSize: 11,
                   ),
@@ -97,7 +97,7 @@ class _ItemsPageState extends State<ItemsPage> {
                 TextSpan(
                   text: '${widget.price.toString()}',
                   style: const TextStyle(
-                    color: Color(0xff4F4F4F), // үнэ (тооны) өнгө
+                    color: Color(0xff4F4F4F),
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
