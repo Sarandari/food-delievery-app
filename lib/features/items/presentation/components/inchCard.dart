@@ -18,7 +18,7 @@ class InchCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        onSelected(price); // сонгогдоход үнэ буцаана
+        onSelected(price);
       },
       child: Column(
         children: [
@@ -37,16 +37,12 @@ class InchCard extends StatelessWidget {
           ),SizedBox(height: 6),
           Text(
             "\$$price",
-            style: TextStyle(
-              fontSize: 12,
-              color: isSelected ? Colors.redAccent : Colors.grey,
-              fontWeight: FontWeight.bold,
-            ),
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(color: isSelected ? Colors.redAccent : Colors.grey,),
           ),
           SizedBox(height: 6),
           Text(
             "$inch inch",
-            style: const TextStyle(fontSize: 14, color: Colors.black),
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ],
       ),

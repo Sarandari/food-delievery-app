@@ -13,9 +13,7 @@ class MyDetailText extends StatelessWidget {
         SizedBox(width: 8),
         Text(
           txt,
-          style: TextStyle(
-            fontSize: 16,
-          ),
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.black),
         )
       ],
     );

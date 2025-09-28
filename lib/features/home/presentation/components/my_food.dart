@@ -12,11 +12,10 @@ class MyFood extends StatelessWidget {
       child: Column(
         children: [
           //image
-          Container(
-              child: Image(image: AssetImage(image))),
+          Image(image: AssetImage(image)),
 
           //text
-          Text(title, style: TextStyle(color: Color(0xff4F4F4F), fontSize: 10),),
+          Text(title, style: Theme.of(context).textTheme.bodySmall),
         ],
       ),
     );

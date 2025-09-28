@@ -6,7 +6,7 @@ class StartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // дэлгэцийн хэмжээ
+    // display size
     final size = MediaQuery.of(context).size;
     final height = size.height;
     final width = size.width;
@@ -17,11 +17,11 @@ class StartPage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         body: SafeArea(
           child: Stack(
             children: [
-              // Дээд зураг
+              // Image man
               Container(
                 height: height * 0.65,
                 width: double.infinity,
@@ -33,14 +33,16 @@ class StartPage extends StatelessWidget {
                 ),
               ),
 
-              // Доод card
+              // bottom card
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  margin: EdgeInsets.all(width * 0.08), // дэлгэцийн өргөний 8%
-                  padding: EdgeInsets.all(width * 0.09), // дэлгэцийн өргөний 9%
+                  margin: EdgeInsets.all(width * 0.08),
+                  padding: EdgeInsets.all(width * 0.09),
+
+                  //box
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onPrimary,
                     borderRadius: BorderRadius.circular(26),
                     boxShadow: [
                       BoxShadow(
@@ -53,37 +55,31 @@ class StartPage extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
+                      //text
                       Text.rich(
                         textAlign: TextAlign.center,
                         TextSpan(
                           text: 'Quick Delivery at your',
-                          style: TextStyle(
-                            fontSize: width * 0.08,
-                            color: Color(0xff4F4F4F),
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: Theme.of(context).textTheme.displaySmall,
                           children: [
                             TextSpan(
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: width * 0.08,
-                                color: Colors.redAccent,
-                              ),
+                              style: Theme.of(context).textTheme.displaySmall?.copyWith(color: Theme.of(context).colorScheme.primary),
                               text: ' Doorstep',
                             ),],
                         ),
 
                       ),
                       SizedBox(height: height * 0.01),
-                      const Text(
+
+                      //text
+                       Text(
                         "Home delivery and online reservation system for restaurants and cafe",
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Color(0xffBDBDBD),
-                        ),
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                       SizedBox(height: height * 0.01),
+
+                      //Get started button
                       ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).push(
@@ -93,7 +89,7 @@ class StartPage extends StatelessWidget {
                           );
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.redAccent,
+                          backgroundColor: Theme.of(context).colorScheme.primary,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(40),
                           ),
@@ -104,10 +100,7 @@ class StartPage extends StatelessWidget {
                         ),
                         child: Text(
                           "Get Started",
-                          style: TextStyle(
-                              fontSize: width * 0.06,
-                              color: Colors.white
-                          ),
+                          style: Theme.of(context).textTheme.labelLarge,
                         ),
                       ),
                     ],

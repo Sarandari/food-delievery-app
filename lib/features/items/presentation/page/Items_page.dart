@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../components/image_Size_test.dart';
 import '../components/inchCard.dart';
 import '../components/my_detail_text.dart';
 
@@ -54,7 +53,6 @@ class _ItemsPageState extends State<ItemsPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -76,10 +74,7 @@ class _ItemsPageState extends State<ItemsPage> {
         children: [
           //text
           Text('Meeting Cheese',
-            style: TextStyle(
-                color: Color(0xff4F4F4F),
-                fontSize: 21,
-            ),
+            style: Theme.of(context).textTheme.titleLarge,
           ),
           SizedBox(height: 8),
           //price
@@ -88,19 +83,11 @@ class _ItemsPageState extends State<ItemsPage> {
               children: [
                 TextSpan(
                   text: "\$",
-                  style: const TextStyle(
-                    color: Colors.redAccent,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 11,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 TextSpan(
                   text: '${widget.price.toString()}',
-                  style: const TextStyle(
-                    color: Color(0xff4F4F4F),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               ]
             ),
@@ -130,13 +117,14 @@ class _ItemsPageState extends State<ItemsPage> {
                         color: Color(0xff00000033),
                         blurRadius: 4,
                         offset: const Offset(0, 0),
-                      ),]
+                      ),
+                      ],
                   ),
                   child: const Icon(Icons.remove, color: Colors.white, size: 18),
                 ),
               ),
               SizedBox(width: 8),
-              Text(countDelivery.toString()),
+              Text(countDelivery.toString(),style: Theme.of(context).textTheme.bodyLarge,),
               SizedBox(width: 8),
               GestureDetector(
                 onTap: increaseCount,
@@ -158,7 +146,7 @@ class _ItemsPageState extends State<ItemsPage> {
           ),
           SizedBox(height: 8),
           //price
-          Text('\$${totalPrice.toStringAsFixed(2)}'),
+          Text('\$${totalPrice.toStringAsFixed(2)}',style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Color(0xff828282)),),
           SizedBox(height: 90),
           //inch
           Container(
@@ -202,11 +190,11 @@ class _ItemsPageState extends State<ItemsPage> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
-              padding: const EdgeInsets.symmetric(horizontal: 90, vertical: 14),
+              padding: EdgeInsets.symmetric(horizontal: 90, vertical: 14),
             ),
-            child: const Text(
+            child: Text(
               "ADD TO CARD",
-              style: TextStyle(fontSize: 24, color: Colors.white),
+              style: TextStyle(color: Colors.white, fontSize: 22),
             ),
           ),
         ],

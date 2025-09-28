@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'my_food.dart';
 
 class FindFood extends StatelessWidget {
@@ -13,11 +12,7 @@ class FindFood extends StatelessWidget {
         children: [
           //text
           Text('Find your Delicoious Food',
-            style: TextStyle(
-              color: Color(0xff4F4F4F),
-              fontSize: 21,
-              fontWeight: FontWeight.bold,
-            ),
+            style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(height: 18),
           //option

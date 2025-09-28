@@ -44,10 +44,7 @@ class FoodCard extends StatelessWidget {
             SizedBox(height: 10),
             //title
             Text(title,
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-              ),
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
             SizedBox(height: 8),
             //calories
@@ -56,11 +53,7 @@ class FoodCard extends StatelessWidget {
               children: [
                 Image(image: AssetImage('assets/images/calories-emoji.png')),
                 Text('${calories.toString()} calories',
-                  style: TextStyle(
-                    color: Color(0xffEB5757),
-                    fontSize: 11,
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.redAccent),
                 ),
               ],
             ),
@@ -74,19 +67,11 @@ class FoodCard extends StatelessWidget {
                 children: [
                   TextSpan(
                     text: "\$",
-                    style: const TextStyle(
-                      color: Colors.redAccent, // $ тэмдэгийн өнгө
-                      fontWeight: FontWeight.bold,
-                      fontSize: 11,
-                    ),
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Theme.of(context).colorScheme.primary),
                   ),
                   TextSpan(
                     text: '${price.toString()}',
-                    style: const TextStyle(
-                      color: Color(0xff4F4F4F), // үнэ (тооны) өнгө
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ],
               ),
@@ -104,7 +89,7 @@ class FoodCard extends StatelessWidget {
                   offset: const Offset(0, 0),
                 ),]
               ),
-              child: const Icon(Icons.add, color: Colors.white, size: 18),
+              child: Icon(Icons.add, color: Theme.of(context).colorScheme.background, size: 19),
             ),
           ],
         ),
